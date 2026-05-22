@@ -1,4 +1,4 @@
-const API_BASE_URL = '/api';
+const API_BASE_URL = 'https://room-booking-omega-one.vercel.app/api';
 
 export const getRooms = async () => {
   const res = await fetch(`${API_BASE_URL}/rooms`);
