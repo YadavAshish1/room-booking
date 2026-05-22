@@ -6,8 +6,9 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json());
+app.use('/api', roomRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -19,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(staticPath));
 
 }
-app.use('/api', roomRoutes);
+
 
 // Start server
 app.listen(PORT, () => {
